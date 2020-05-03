@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.yearLabel.keyboardType = UIKeyboardType.numberPad
+//        self.yearLabel.keyboardType = UIKeyboardType.numberPad
     }
 
     
@@ -23,11 +23,17 @@ class ViewController: UIViewController {
     
     @IBAction func Run(_ sender: Any) {
         yearLabel.endEditing(true)
-        let year = Int(yearLabel.text!)
+//        let year = Int(yearLabel.text!)
+        guard let unwrappedYearLabel = yearLabel.text else {
+            return
+        }
+        guard let year = Int(unwrappedYearLabel) else {
+            return
+        }
         let ans : String
-        if year! % 4 == 0 {
-            if year! % 100 == 0 {
-                if year! % 400 == 0 {
+        if year % 4 == 0 {
+            if year % 100 == 0 {
+                if year % 400 == 0 {
                     ans = "is"
                 } else {
                     ans = "is not"
@@ -38,6 +44,7 @@ class ViewController: UIViewController {
         }else {
             ans = "is not"
         }
+        
         result.text = (yearLabel.text! + " " + ans + " leap year.")
     }
 }
