@@ -26,7 +26,15 @@ class ViewController: UIViewController {
         let year = Int(yearlabel.text!)
         let ans : String
         if year! % 4 == 0 {
-            ans = "is"
+            if year! % 100 == 0 {
+                if year! % 400 == 0 {
+                    ans = "is"
+                } else {
+                    ans = "is not"
+                }
+            } else {
+                ans = "is"
+            }
         }else {
             ans = "is not"
         }
