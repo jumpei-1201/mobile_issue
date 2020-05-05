@@ -24,11 +24,10 @@ class ViewController: UIViewController {
     @IBAction func Run(_ sender: Any) {
         yearLabel.endEditing(true)
 //        let year = Int(yearLabel.text!)
-        guard let unwrappedYearLabel = yearLabel.text else {
-            return
-        }
-        guard let year = Int(unwrappedYearLabel) else {
-            return
+        guard
+            let unwrappedYearLabel = yearLabel.text,
+            let year = Int(unwrappedYearLabel) else {
+                return
         }
         let ans : String
         if year % 4 == 0 {
