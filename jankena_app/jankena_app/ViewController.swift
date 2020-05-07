@@ -13,11 +13,16 @@ class ViewController: UIViewController {
     // タイマーの変数を作成
     var timer : Timer?
     var imageView:UIImageView!
+    // アニメーション用の画像
+    let rockImage = #imageLiteral(resourceName: "gu")
+    let sissorsImage = #imageLiteral(resourceName: "choki")
+    let paperImage = #imageLiteral(resourceName: "pa")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        resultLabel.text = "JANKEN..."
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.animetion_start(_:)), userInfo: nil, repeats: false)
     }
 
@@ -34,75 +39,62 @@ class ViewController: UIViewController {
         janken(you: .paper)
     }
 
-    enum Hand{
-        case rock, scissors, paper
+    enum Hand: Int{
+        case rock = 0
+        case scissors = 1
+        case paper = 2
     }
-    enum Result{
-        case win, draw, lose
+    enum Result: String{
+        case win = "Win!"
+        case draw = "Draw"
+        case lose = "Lose"
+        case no = "no much"
     }
 
-    func janken( you:Hand ) -> Optional<Int>{
+    func janken( you:Hand ) {
         let num_random:Int = Int(arc4random_uniform(UInt32(3)))
-        let hand:[String] = ["rock", "scissors", "paper"]
-        let pchand:String = hand[num_random]
-        var result:String = "no much"
-        switch you {
-        case .rock :
-            if pchand == "rock" {
-                result = "you draw"
-            }else if pchand == "scissors" {
-                result = "you win!"
-            }else if pchand == "paper" {
-                result = "you lose"
-            }
-        case .scissors:
-            if pchand == "rock" {
-                result = "you lose"
-            }else if pchand == "scissors" {
-                result = "you draw"
-            }else if pchand == "paper" {
-                result = "you win!"
-            }
-        case .paper:
-            if pchand == "rock" {
-                result = "you win!"
-            }else if pchand == "scissors" {
-                result = "you lose"
-            }else if pchand == "paper" {
-                result = "you draw"
-            }
+        let hand:[Hand] = [.rock, .scissors, .paper]
+        let pchand = hand[num_random]
+        var result:Result = .no
+        
+        let num_result = (you.rawValue - pchand.rawValue + 3) % 3
+        
+        if num_result == 0 {
+            result = .draw
+        } else if num_result == 1 {
+            result = .lose
+        } else if num_result == 2 {
+            result = .win
         }
         
         var pchandLabel = UIImage()
-        if pchand == "rock" {
+        if pchand == .rock {
             pchandLabel = UIImage(named: "gu")!
-        }else if pchand == "scissors" {
+        }else if pchand == .scissors {
             pchandLabel = UIImage(named: "choki")!
-        }else if pchand == "paper" {
+        }else if pchand == .paper {
             pchandLabel = UIImage(named: "pa")!
         }
-        print("cp : \(pchand).", result, separator: " ")
+        print("cp: \(pchand). you \(result.rawValue)")
         enemy.image = pchandLabel
         
 
         // アニメーションを終了
 //        imageView.stopAnimating()
         enemy.stopAnimating()
-        viewDidLoad().self
-        resultLabel.text = result
-        return nil
+        resultLabel.text = "you \(result.rawValue)"
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.resultLabel.text = "JANKEN..."
+            self.timer = Timer.scheduledTimer(timeInterval: 0, target: self, selector: #selector(self.animetion_start(_:)), userInfo: nil, repeats: false)
+        self.resultLabel.text = "JANKEN..."
+        }
     }
     
-    @IBOutlet weak var gou: UIImageView!
     @objc func animetion_start(_ timer:Timer) {
         
-        // アニメーション用の画像
-        let image1 = UIImage(named:"gu")!
-        let image2 = UIImage(named:"choki")!
-        let image3 = UIImage(named:"pa")!
-
         // UIImage の配列を作る
-        let imageListArray :Array<UIImage> = [image1, image2, image3]
+        let imageListArray :[UIImage] = [rockImage, sissorsImage, paperImage]
 //
 //        // UIImageView のインスタンス生成,ダミーでimage1を指定
 //        imageView = UIImageView(image:image1)
