@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="jankena_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5b-Ws-LDL">
+                                <rect key="frame" x="64.5" y="579" width="65" height="84"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <state key="normal" title="✊"/>
+                                <connections>
+                                    <action selector="gu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0yG-Pu-QBD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJM-51-smu">
+                                <rect key="frame" x="174.5" y="579" width="65" height="84"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <state key="normal" title="✌️"/>
+                                <connections>
+                                    <action selector="choki:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bh3-mR-Lir"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AuA-R1-cFg">
+                                <rect key="frame" x="279.5" y="579" width="65" height="84"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <state key="normal" title="🖐"/>
+                                <connections>
+                                    <action selector="pa:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gg9-8A-YIZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="JANKEN..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70Y-gJ-VLl">
+                                <rect key="frame" x="138.5" y="429" width="137" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="橋本環奈" translatesAutoresizingMaskIntoConstraints="NO" id="6Kj-vz-o5D">
+                                <rect key="frame" x="234.5" y="163" width="145" height="204"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="204" id="K3D-bR-58W"/>
+                                    <constraint firstAttribute="width" constant="145" id="TGS-DS-fMf"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gu" translatesAutoresizingMaskIntoConstraints="NO" id="kaf-4n-lly">
+                                <rect key="frame" x="42" y="223" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="Nny-h5-jhS"/>
+                                    <constraint firstAttribute="height" constant="130" id="hr2-pq-BSb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="70Y-gJ-VLl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0aR-Z0-SpK"/>
+                            <constraint firstItem="70Y-gJ-VLl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0fy-MB-62N"/>
+                            <constraint firstItem="6Kj-vz-o5D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="100" id="6a1-l0-hP6"/>
+                            <constraint firstItem="AuA-R1-cFg" firstAttribute="leading" secondItem="FJM-51-smu" secondAttribute="trailing" constant="40" id="6ja-2J-RcF"/>
+                            <constraint firstItem="FJM-51-smu" firstAttribute="top" secondItem="T5b-Ws-LDL" secondAttribute="top" id="FKr-Vp-xTq"/>
+                            <constraint firstItem="FJM-51-smu" firstAttribute="top" secondItem="70Y-gJ-VLl" secondAttribute="bottom" constant="113" id="Uf0-Gx-0We"/>
+                            <constraint firstItem="70Y-gJ-VLl" firstAttribute="top" secondItem="6Kj-vz-o5D" secondAttribute="bottom" constant="63" id="V5Z-Ae-d7S"/>
+                            <constraint firstItem="FJM-51-smu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YzQ-WY-8X7"/>
+                            <constraint firstItem="70Y-gJ-VLl" firstAttribute="top" secondItem="kaf-4n-lly" secondAttribute="bottom" constant="77" id="hgu-zQ-1if"/>
+                            <constraint firstItem="kaf-4n-lly" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-100" id="kD3-7q-NQI"/>
+                            <constraint firstItem="AuA-R1-cFg" firstAttribute="top" secondItem="FJM-51-smu" secondAttribute="top" id="xKe-xh-ioK"/>
+                            <constraint firstItem="FJM-51-smu" firstAttribute="leading" secondItem="T5b-Ws-LDL" secondAttribute="trailing" constant="45" id="zDd-fe-QLH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="enemy" destination="kaf-4n-lly" id="rrk-Z5-frD"/>
+                        <outlet property="resultLabel" destination="70Y-gJ-VLl" id="FNI-R4-iLW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gu" width="169" height="169"/>
+        <image name="橋本環奈" width="567" height="800"/>
+    </resources>
+</document>

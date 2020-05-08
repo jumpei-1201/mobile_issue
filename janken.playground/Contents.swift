@@ -4,49 +4,36 @@ import UIKit
 //Parameters: (you: HandType)
 //Return type: nil
 
-enum Hand{
-    case rock, scissors, paper
+enum Hand: Int{
+    case rock = 0
+    case scissors = 1
+    case paper = 2
 }
-enum Result{
-    case win, draw, lose
+enum Result: String{
+    case win = "Win!"
+    case draw = "Draw"
+    case lose = "Lose"
+    case no = "no much"
 }
 
-func janken( you:Hand ) -> Optional<Int>{
+func janken( you:Hand ) {
     let num_random:Int = Int(arc4random_uniform(UInt32(3)))
-    let hand:[String] = ["rock", "scissors", "paper"]
-//    print(num_random)
-    let pchand:String = hand[num_random]
-    var result:String = "no much"
-    switch you {
-    case .rock :
-        if pchand == "rock" {
-            result = "you draw"
-        }else if pchand == "scissors" {
-            result = "you win!"
-        }else if pchand == "paper" {
-            result = "you lose"
-        }
-    case .scissors:
-        if pchand == "rock" {
-            result = "you lose"
-        }else if pchand == "scissors" {
-            result = "you draw"
-        }else if pchand == "paper" {
-            result = "you win!"
-        }
-    case .paper:
-        if pchand == "rock" {
-            result = "you win!"
-        }else if pchand == "scissors" {
-            result = "you lose"
-        }else if pchand == "paper" {
-            result = "you draw"
-        }
+    let hand:[Hand] = [.rock, .scissors, .paper]
+    let pchand = hand[num_random]
+    var result:Result = .no
+    
+    let num_result = (you.rawValue - pchand.rawValue + 3) % 3
+    
+    if num_result == 0 {
+        result = .draw
+    } else if num_result == 1 {
+        result = .lose
+    } else if num_result == 2 {
+        result = .win
     }
-    print("cp : \(pchand).", result, separator: " ")
-    return nil
+    
+    print("cp: \(pchand). you \(result.rawValue)")
 }
-
 
 janken(you: .rock)
 // cp: scissors. you win!
