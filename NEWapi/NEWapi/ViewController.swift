@@ -24,7 +24,7 @@ class ViewController: UIViewController {
                 }
                 case .failure(let error): do {
                     /// 失敗処理
-                    print("Error!")
+                    print(error)
                 }
             }
         }
